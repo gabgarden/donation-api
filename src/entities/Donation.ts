@@ -1,20 +1,17 @@
-import { Supply } from "./Supply";
-import { User } from "./User";
-import { DonationStatus } from "../enums/DonationStatus";
+import { SupplyOfDonation } from './SupplyOfDonation';
+import { User } from './User';
+import { DonationStatus } from '../enums/DonationStatus';
 
-export class Donation{
-    id: string;
-    requester: User;
-    message: string;
-    createdAt: Date;
-    status: DonationStatus = DonationStatus.PENDING;
-    supplies: { supplyId: string; quantity: number }[];
+export class Donation {
+  id: string;
+  requester: User;
+  createdAt: Date;
+  status: DonationStatus = DonationStatus.PENDING;
+  supplies: SupplyOfDonation[];
 
-    constructor(id: string, requester: User, message: string, createdAt: Date) {
-        this.id = id;
-        this.requester = requester;
-        this.message = message;
-        this.createdAt = createdAt;
-    }
+  constructor(id: string, requester: User, createdAt: Date) {
+    this.requester = requester;
+    this.createdAt = createdAt;
+    this.id = id;
+  }
 }
-
