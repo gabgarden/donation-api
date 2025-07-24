@@ -1,5 +1,3 @@
 export interface IRepository<T> {
-
-    create(data: T): Promise<T | Error>;
-
+  create(data: T): Promise<T | Error>;
 }
