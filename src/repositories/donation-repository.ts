@@ -1,6 +1,6 @@
 import { IRepository } from '../contracts/iRepository';
 
-import { Donation } from '../domain/entities/Donation';
+import { Donation } from '../domain/entities/donation';
 
 export class DonationRepository implements IRepository<Donation> {
   async create(item: Donation): Promise<Donation | Error> {

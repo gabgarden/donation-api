@@ -1,6 +1,8 @@
+import { v4 as uuid } from 'uuid';
+
+import { Donation } from '../entities/donation';
+
 import { IUseCase } from '../../contracts/iUseCase';
-import { Donation } from '../entities/Donation';
-import { v4 } from 'uuid';
 import { IRepository } from '../../contracts/iRepository';
 
 export class DonationUseCase
@@ -14,7 +16,7 @@ export class DonationUseCase
   async perform(
     data: Omit<Donation, 'id' | 'createdAt' | 'status'>
   ): Promise<Donation | Error> {
-    const id = v4();
+    const id = uuid();
     const createdAt = new Date();
     const donator = data.donator;
 

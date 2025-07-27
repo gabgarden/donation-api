@@ -1,4 +1,4 @@
-import { Supply } from './Supply';
+import { Supply } from './supply';
 
 export class DonationItem {
   supply: Supply;

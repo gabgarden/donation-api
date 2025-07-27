@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { User } from '../../domain/entities/User';
+import { User } from '../../domain/entities/user';
 
 import { DonationStatus } from '../../enums/donation-status';
 
@@ -16,4 +16,4 @@ const DonationSchema = new mongoose.Schema({
   supplies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'SupplyOfDonation' }],
 });
 
-export default mongoose.model('Donation', DonationSchema);
+export default mongoose.model('Donations', DonationSchema);

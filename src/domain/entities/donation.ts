@@ -1,5 +1,5 @@
-import { DonationItem } from './DonationItem';
-import { User } from './User';
+import { DonationItem } from './donation-item';
+import { User } from './user';
 
 import { DonationStatus } from '../../enums/donation-status';
 
