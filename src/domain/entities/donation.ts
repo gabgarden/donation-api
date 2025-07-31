@@ -10,9 +10,15 @@ export class Donation {
   status: DonationStatus = DonationStatus.PENDING;
   supplies: DonationItem[];
 
-  constructor(id: string, donator: User, createdAt: Date) {
+  constructor(
+    id: string,
+    donator: User,
+    createdAt: Date,
+    supplies: DonationItem[]
+  ) {
     this.donator = donator;
     this.createdAt = createdAt;
     this.id = id;
+    this.supplies = supplies;
   }
 }

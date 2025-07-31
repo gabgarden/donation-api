@@ -8,7 +8,7 @@ export default async function Main() {
     mongoose.set('strictQuery', true);
 
     await mongoose.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@1stcluster.qp0zltg.mongodb.net/?retryWrites=true&w=majority&appName=1stCluster`
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=1stCluster`
     );
 
     console.log('Connection established');

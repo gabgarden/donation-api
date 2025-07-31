@@ -1,16 +1,22 @@
-import express from 'express';
-
+import { Router } from 'express';
 import { DonationFactory } from '../factories/donation-factory';
 
-export async function DonationRouter() {
+export function DonationRouter() {
   const factory = DonationFactory();
-  const app = express();
+  const router = Router();
 
-  app.get('/', (req, res) => {
+  router.get('/', (req, res) => {
     return res.send('Donation route is working');
   });
 
-  app.post('/', (req, res) => {
-    return factory.handle(req, res);
+  router.post('/', async (req, res) => {
+    try {
+      await factory.handle(req, res);
+    } catch (error) {
+      console.error('Error in donation route:', error);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
   });
+
+  return router;
 }
