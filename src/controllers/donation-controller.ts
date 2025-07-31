@@ -21,6 +21,8 @@ export class DonationController {
       supplies: DonationItem[];
     };
 
-    await this.usecase.perform(data);
+    const donation = await this.usecase.perform(data);
+
+    return res.status(201).json(donation).end();
   }
 }

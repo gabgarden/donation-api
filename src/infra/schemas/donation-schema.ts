@@ -1,19 +1,23 @@
 import mongoose from 'mongoose';
 
-import { User } from '../../domain/entities/user';
-
 import { DonationStatus } from '../../enums/donation-status';
 
-const DonationSchema = new mongoose.Schema({
+import { userSchema } from './user-schema';
+import { supplySchema } from './supply-schema';
+
+const donationSchema = new mongoose.Schema({
   id: String,
-  donator: User,
+  donator: {
+    type: userSchema,
+    required: true,
+  },
   createdAt: Date,
   status: {
     type: String,
     enum: Object.values(DonationStatus),
     default: DonationStatus.PENDING,
   },
-  supplies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'SupplyOfDonation' }],
+  supplies: [supplySchema],
 });
 
-export default mongoose.model('Donations', DonationSchema);
+export default mongoose.model('Donations', donationSchema);

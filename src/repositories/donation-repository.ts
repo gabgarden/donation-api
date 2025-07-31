@@ -1,10 +1,11 @@
 import { IRepository } from '../contracts/iRepository';
+import donationSchema from '../infra/schemas/donation-schema';
 
 import { Donation } from '../domain/entities/donation';
 
 export class DonationRepository implements IRepository<Donation> {
-  async create(item: Donation): Promise<Donation | Error> {
-    // Implement logic to create a new donation
-    throw new Error('Method not implemented.');
+  async create(donation: Donation): Promise<Donation | Error> {
+    donationSchema.create(donation);
+    return donation;
   }
 }
